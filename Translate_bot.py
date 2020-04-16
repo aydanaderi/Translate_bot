@@ -4,7 +4,7 @@ import telepot
 import time
 
 bot = telepot.Bot('TOKEN')
-def handle(msg):
+def translate(msg):
     content_type,chat_type,chat_id = telepot.glance(msg)
     if content_type == 'text':
         text = msg['text']
@@ -23,7 +23,7 @@ def handle(msg):
                 bot.sendMessage(chat_id,'that is wrong!')
     else:
          bot.sendMessage(chat_id, 'your content type is wrong!')
-bot.message_loop(handle)
-print ('Listening ...')
+bot.message_loop(translate)
+print ('waiting ...')
 while 1:
-    time.sleep(30)
+    time.sleep(10)
